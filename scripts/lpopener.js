@@ -5,11 +5,21 @@ onload = function() {
   if (openlpbug) {
     openlpbug.onclick = function() {
       var urlprefix = "https://bugs.launchpad.net/bugs/";
+      var urlsar = Array();
       var idsar = bugids.value.split(" ")
-        .map(function(x) {return parseInt(x);})
+        .map(function(x) {
+          if (x.startsWith("lp:")) {
+            var xar = x.split(":");
+            if (xar.length > 1) return parseInt(xar[1]);
+            return 0;
+          } else if (x.startsWith("http")) {
+            urlsar.push(x); return 0;
+          }
+          return parseInt(x);
+        })
         .filter(function(x) {return x > 0});
-      var urlsar = idsar
-        .map(function(x) {return urlprefix + x.toString();});
+      urlsar = urlsar.concat(idsar
+        .map(function(x) {return urlprefix + x.toString();}));
       if (urlsar.length > 1) {
         chrome.windows.create({url: urlsar});
       } else if (urlsar.length > 0) {
