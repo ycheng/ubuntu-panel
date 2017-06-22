@@ -5,11 +5,8 @@ onload = function() {
   if (openlpbug) {
     openlpbug.onclick = function() {
       var urlprefix = "https://bugs.launchpad.net/bugs/";
-      var url = urlprefix + bugids.value;
-      // chrome.tabs.create({'url': 'http://www.google.com'}, 
-      chrome.tabs.create({'url': url},
-	function(tab){ alert(tab.id) }
-	);
+      var url = urlprefix + parseInt(bugids.value);
+      chrome.tabs.create({'url': url});
     };
   }
 }
