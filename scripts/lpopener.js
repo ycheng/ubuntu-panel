@@ -6,7 +6,7 @@ onload = function() {
     openlpbug.onclick = function() {
       var urlprefix = "https://bugs.launchpad.net/bugs/";
       var urlsar = Array();
-      var idsar = bugids.value.split(" ")
+      var idsar = bugids.value.split(/[\s,]+/)
         .map(function(x) {
           if (x.startsWith("lp:")) {
             var xar = x.split(":");
