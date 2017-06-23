@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Ubuntu Panel",
+  "name": "LP Bug Opener",
   "minimum_chrome_version": "35.0.0.0",
-  "description": "Ubuntu Panel",
+  "description": "A Extension that help you to open lots of LP bugs in a new window.",
   "version": "0.1",
   "icons": {
     "16": "icon_16.png"
