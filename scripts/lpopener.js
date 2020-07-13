@@ -23,9 +23,9 @@ onload = function() {
       urlsar = urlsar.concat(idsar
         .map(function(x) {return urlprefix + x.toString();}));
       if (urlsar.length > 1) {
-        chrome.windows.create({url: urlsar});
+        browser.windows.create({url: urlsar});
       } else if (urlsar.length > 0) {
-        chrome.tabs.create({'url': urlsar[0]});
+        browser.tabs.create({'url': urlsar[0]});
       }
     };
   }
